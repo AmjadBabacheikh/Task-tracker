@@ -1,6 +1,9 @@
 <header>
-  {{ title }}
+  <h4>
+    <a routerLink="/">{{ title }}</a>
+  </h4>
   <app-button
+    *ngIf="hasRoute('/')"
     color="green"
     text="Add"
     (btnClick)="triggedAddTask()"

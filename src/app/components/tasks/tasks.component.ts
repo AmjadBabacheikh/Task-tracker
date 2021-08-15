@@ -12,7 +12,12 @@ export class TaskComponent implements OnInit {
   constructor(private taskService:TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks)=> this.tasks=tasks);
+    this.taskService.getTasks().subscribe(
+      (tasks)=> this.tasks=tasks,
+      (error:Response) => {
+      alert("An unexpected error accured");
+      console.log(error);
+    });
   }
 
   triggedDeleteTask(task:Task){
